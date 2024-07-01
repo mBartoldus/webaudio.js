@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@mbartoldus/stringworker": "jsr:@mbartoldus/stringworker@^0.1.0",
+    "@mbartoldus/threadables": "jsr:@mbartoldus/threadables@^0.1.0"
+  }
+}
