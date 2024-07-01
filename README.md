@@ -1,0 +1,1 @@
+The purpose of this project is to implement webaudio in javascript, for use in non-browser runtimes such as Deno. Specifically, the goal is to make a functioning `OfflineAudioContext`, to facilitate automated testing.
