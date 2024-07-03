@@ -2,13 +2,13 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@mbartoldus/threadables@^0.1.0": "jsr:@mbartoldus/threadables@0.1.0",
+      "jsr:@mbartoldus/stringworker@^0.1.1": "jsr:@mbartoldus/stringworker@0.1.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
       "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0"
     },
     "jsr": {
-      "@mbartoldus/threadables@0.1.0": {
-        "integrity": "af6a1f6b42b3ad63c65c3570f3d996c69b58031c3c07ed2d155428432c5c106d"
+      "@mbartoldus/stringworker@0.1.1": {
+        "integrity": "3819c3f04d880439179db48e544864346901d740d1899109879add63b5774435"
       },
       "@std/assert@0.226.0": {
         "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
@@ -57,8 +57,9 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@mbartoldus/stringworker@^0.1.0",
-      "jsr:@mbartoldus/threadables@^0.1.0",
+      "jsr:@kt3k/pack@^0.1.10",
+      "jsr:@mbartoldus/stringworker@^0.1.1",
+      "jsr:@mbartoldus/threadables@^0.1.1",
       "jsr:@std/assert@^0.226.0"
     ]
   }
