@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@mbartoldus/stringworker": "jsr:@mbartoldus/stringworker@^0.1.0",
-    "@mbartoldus/threadables": "jsr:@mbartoldus/threadables@^0.1.0",
+    "@mbartoldus/stringworker": "jsr:@mbartoldus/stringworker@^0.1.1",
+    "@mbartoldus/threadables": "jsr:@mbartoldus/threadables@^0.1.1",
     "@std/assert": "jsr:@std/assert@^0.226.0"
   }
 }
