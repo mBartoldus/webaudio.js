@@ -1,10 +1,13 @@
 import {bakeScript} from "@mbartoldus/stringworker"
 
 async function bundle(path: string) {
-    return new TextDecoder().decode(await Deno.run({
-        stdout: 'piped',
-        cmd: ['deno', 'run', '-A', 'jsr:@kt3k/pack', path],
-    }).output())
+    const cmd = new Deno.Command(Deno.execPath(), {
+        args: [
+            'deno', 'run', '-A', 'jsr:@kt3k/pack@^0.1.10', path
+        ],
+        stdout: 'piped'
+    })
+    return new TextDecoder().decode((await cmd.output()).stdout)
 }
 
 const workletBundle = await bundle('src/workletMod.ts')
