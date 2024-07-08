@@ -10,5 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v1
+      - run: deno lint
       - run: deno run -A build.ts
       - run: deno test
