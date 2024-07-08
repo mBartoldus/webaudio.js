@@ -1,4 +1,4 @@
-import { AudioBuffer, _shareAudioBuffer, _acceptAudioBuffer } from './AudioBuffer.ts'
+import { AudioBuffer, _shareAudioBuffer, _acceptAudioBuffer } from './audio_buffer.ts'
 import { assertStrictEquals, assertEquals } from '@std/assert'
 import { assertSubset } from "../utils/assertSubset.ts"
 
