@@ -193,7 +193,7 @@ export interface OscillatorNode extends AudioScheduledSourceNode {
     readonly detune: AudioParam
     setPeriodicWave(periodicWave: PeriodicWave): void
 }
-export interface PeriodicWave { }
+export type PeriodicWave = {}
 
 export interface AnalyserNode extends AudioNode {
     getFloatFrequencyData(array: Float32Array): void
