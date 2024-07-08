@@ -1,5 +1,6 @@
 import { AudioBuffer, _shareAudioBuffer, _acceptAudioBuffer } from './AudioBuffer.ts'
 import { assertStrictEquals, assertEquals } from '@std/assert'
+import { assertSubset } from "../utils/assertSubset.ts"
 
 function getPCM(audioBuffer: AudioBuffer) {
     return _shareAudioBuffer(audioBuffer).pcm
@@ -11,10 +12,8 @@ Deno.test('AudioBuffer: should initialize properties', () => {
         numberOfChannels: 3,
         length: 256,
         duration: 256 / 48000
-    } as const
-    const audioBuffer = new AudioBuffer(options)
-    //@ts-ignore
-    for(const k in options) assertStrictEquals(audioBuffer[k], options[k])
+    }
+    assertSubset(new AudioBuffer(options), options)
 })
 
 Deno.test('AudioBuffer: should generate pcm with appropriate length', () => {

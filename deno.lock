@@ -3,12 +3,16 @@
   "packages": {
     "specifiers": {
       "jsr:@mbartoldus/stringworker@^0.1.1": "jsr:@mbartoldus/stringworker@0.1.1",
+      "jsr:@mbartoldus/threadables@^0.1.1": "jsr:@mbartoldus/threadables@0.1.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
       "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0"
     },
     "jsr": {
       "@mbartoldus/stringworker@0.1.1": {
         "integrity": "3819c3f04d880439179db48e544864346901d740d1899109879add63b5774435"
+      },
+      "@mbartoldus/threadables@0.1.1": {
+        "integrity": "0f4713d1624cba12d3b0ece04310ffd4fab03dbc709b9362120846e25c44ff03"
       },
       "@std/assert@0.226.0": {
         "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
@@ -18,6 +22,9 @@
       },
       "@std/internal@1.0.0": {
         "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
+      },
+      "@std/internal@1.0.1": {
+        "integrity": "6f8c7544d06a11dd256c8d6ba54b11ed870aac6c5aeafff499892662c57673e6"
       }
     }
   },
