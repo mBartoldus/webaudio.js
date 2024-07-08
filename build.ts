@@ -10,9 +10,9 @@ async function bundle(path: string) {
     return new TextDecoder().decode((await cmd.output()).stdout)
 }
 
-const workletBundle = await bundle('src/workletMod.ts')
+const workletBundle = await bundle('src/worklet_mod.ts')
 const workletScript = new TextEncoder().encode(bakeScript(workletBundle))
-await Deno.writeFile('src/_workletScript.js', workletScript)
+await Deno.writeFile('src/_worklet_script.js', workletScript)
 
 // const fullBundle = await bundle('src/mod.ts')
 // const fullBundleData = new TextEncoder().encode(fullBundle)
