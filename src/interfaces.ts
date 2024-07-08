@@ -30,7 +30,7 @@ export interface BaseAudioContext extends EventTarget {
     readonly listener: AudioListener
     readonly state: AudioContextState
     readonly audioWorklet?: AudioWorklet
-    onstatechange: ((this: BaseAudioContext, ev: Event) => any) | null
+    onstatechange: ((this: BaseAudioContext, ev: Event) => void) | null
 
     createAnalyser(): AnalyserNode
     createBiquadFilter(): BiquadFilterNode
@@ -91,7 +91,7 @@ export interface OfflineAudioContext extends BaseAudioContext {
     resume(): Promise<void>
     suspend(suspendTime: number): Promise<void>
     readonly length: number
-    onComplete: ((this: OfflineAudioContext, ev: OfflineAudioCompletionEvent) => any) | null
+    onComplete: ((this: OfflineAudioContext, ev: OfflineAudioCompletionEvent) => void) | null
 }
 
 export interface AudioBuffer {
@@ -170,7 +170,7 @@ export interface AudioDestinationNode extends AudioNode {
 
 
 export interface AudioScheduledSourceNode extends AudioNode {
-    onended: ((this: AudioScheduledSourceNode, ev: Event) => any) | null
+    onended: ((this: AudioScheduledSourceNode, ev: Event) => void) | null
     start(when?: number): void
     stop(when?: number): void
 }
@@ -328,7 +328,7 @@ export interface AudioWorkletGlobalScope {
 export interface AudioWorkletNode extends AudioNode {
     readonly parameters: AudioParamMap
     readonly port: MessagePort
-    onprocessorerror: ((this: AudioWorkletNode, ev: Event) => any) | null
+    onprocessorerror: ((this: AudioWorkletNode, ev: Event) => void) | null
 }
 export interface AudioWorkletProcessor {
     readonly port: MessagePort
