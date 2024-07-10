@@ -1,6 +1,6 @@
 import * as threadables from '@mbartoldus/threadables'
 import { audioBufferMetadata } from './threadables.ts'
-import type { AudioBufferMsg } from './messaging.ts'
+import type { AudioBufferMsg } from './messages.ts'
 import type { AudioBuffer as IAudioBuffer, AudioBufferOptions } from '../interfaces.ts'
 
 const _pcm = Symbol('pcm data')
