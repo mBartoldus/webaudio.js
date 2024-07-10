@@ -19,3 +19,9 @@ export function getControlQueue(context: any): any[] {
     //@ts-ignore assume _ctrlQueue will be defined as a non-enumerable property
     return context[_controlQueue]
 }
+
+// deno-lint-ignore no-explicit-any
+export function clearControlQueue(context: any): void {
+    //@ts-ignore assume _ctrlQueue will be defined as a non-enumerable property
+    context[_controlQueue].length = 0
+}
