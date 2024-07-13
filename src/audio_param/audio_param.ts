@@ -1,11 +1,13 @@
 import *  as threadables from '@mbartoldus/threadables'
 import { type AudioParamThreadables, audioParamMetadata } from './threadables.ts'
 import { assertLegalConstruction, _permit } from '../utils/illegal_constructor.ts'
-import type { 
+import { sendControlMessage } from "../messaging/control_queue.ts"
+import type {
     AutomationRate,
     AudioParam as IAudioParam,
     BaseAudioContext
 } from '../interfaces.ts'
+import { getId, registerId } from "../messaging/id_registry.ts";
 
 export interface InitializeAudioParam {
     _permit: typeof _permit
@@ -31,9 +33,19 @@ export class AudioParam implements AudioParamThreadables, IAudioParam {
             ...(init.options ?? {})
         })
         this.#context = init.context
+        registerId(this.#context, this)
+    }
+    #automate(value: number, time: number, interpolation: "none" | "linear" | "exponential"): this {
+        sendControlMessage(this.#context, {
+            automation: {
+                paramId: getId(this),
+                event: { time, value, interpolation }
+            }
+        })
+        return this
     }
     setValueAtTime(value: number, startTime: number) {
-        return this
+        return this.#automate(value, startTime, "none")
     }
     linearRampToValueAtTime(value: number, endTime: number) {
         return this
