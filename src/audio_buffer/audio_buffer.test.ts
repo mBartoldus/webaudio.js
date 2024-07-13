@@ -1,6 +1,6 @@
 import { AudioBuffer, _shareAudioBuffer, _acceptAudioBuffer } from './audio_buffer.ts'
 import { assertStrictEquals, assertEquals } from '@std/assert'
-import { assertSubset } from "../utils/assertSubset.ts"
+import { assertSubset } from "../utils/assert_subset.ts"
 
 function getPCM(audioBuffer: AudioBuffer) {
     return _shareAudioBuffer(audioBuffer).pcm

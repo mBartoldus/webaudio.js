@@ -1,4 +1,4 @@
-import { assertSubset } from "./assertSubset.ts";
+import { assertSubset } from "./assert_subset.ts";
 import { assertThrows } from "@std/assert";
 
 Deno.test('assertSubset', () => {
