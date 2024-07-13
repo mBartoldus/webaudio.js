@@ -1,4 +1,5 @@
 import { AudioNode } from "./audio_node.ts"
+import { AudioParam } from "../audio_param/audio_param.ts";
 import { BaseAudioContext } from "../base_audio_context/base_audio_context.ts"
 import { _permit } from "../utils/illegal_constructor.ts"
 import { getId } from "../messaging/id_registry.ts";
@@ -25,8 +26,9 @@ Deno.test('AudioNode: should send AudioNodeMsg upon construction', () => {
 
     const context = new BaseAudioContext({ _permit })
     const node = new AudioNode({ context, _permit })
+    const param = new AudioParam({context, _permit})
     class DerivedNode extends AudioNode { }
-    const derivedNode = new DerivedNode({ context, _permit })
+    const derivedNode = new DerivedNode({ context, _permit, params: { p: param } })
 
     assertEquals(getControlQueue(context), [{
         audioNode: {
@@ -40,7 +42,7 @@ Deno.test('AudioNode: should send AudioNodeMsg upon construction', () => {
             type: 'DerivedNode',
             id: getId(derivedNode),
             properties: share(derivedNode),
-            params: {}
+            params: { p: share(param) }
         }
     }])
 })
