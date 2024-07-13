@@ -35,3 +35,39 @@ Deno.test('AudioParam.setValueAtTime: should send control message', () => {
     }]
     assertEquals(getControlQueue(context), expected)
 })
+
+Deno.test('AudioParam.linearRampToValueAtTime: should send control message', () => {
+    const context = new BaseAudioContext({ _permit })
+    const param1 = new AudioParam({ _permit, context })
+    param1.linearRampToValueAtTime(1000, 255.99)
+    const id1 = getId(param1)
+    const expected = [{
+        automation: {
+            paramId: id1,
+            event: {
+                time: 255.99,
+                value: 1000,
+                interpolation: "linear"
+            }
+        }
+    }]
+    assertEquals(getControlQueue(context), expected)
+})
+
+Deno.test('AudioParam.exponentialRampToValueAtTime: should send control message', () => {
+    const context = new BaseAudioContext({ _permit })
+    const param1 = new AudioParam({ _permit, context })
+    param1.exponentialRampToValueAtTime(-2, 3.1415)
+    const id1 = getId(param1)
+    const expected = [{
+        automation: {
+            paramId: id1,
+            event: {
+                time: 3.1415,
+                value: -2,
+                interpolation: "exponential"
+            }
+        }
+    }]
+    assertEquals(getControlQueue(context), expected)
+})

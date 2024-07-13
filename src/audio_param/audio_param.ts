@@ -48,29 +48,29 @@ export class AudioParam implements AudioParamThreadables, IAudioParam {
         return this.#automate(value, startTime, "none")
     }
     linearRampToValueAtTime(value: number, endTime: number) {
-        return this
+        return this.#automate(value, endTime, "linear")
     }
     exponentialRampToValueAtTime(value: number, endTime: number) {
-        return this
+        return this.#automate(value, endTime, "exponential")
     }
     setTargetAtTime(
-        target: number,
-        startTime: number,
-        timeConstant: number
+        _target: number,
+        _startTime: number,
+        _timeConstant: number
     ) {
         return this
     }
     setValueCurveTime(
-        values: Iterable<number>,
-        startTime: number,
-        duration: number
+        _values: Iterable<number>,
+        _startTime: number,
+        _duration: number
     ) {
         return this
     }
-    cancelScheduledValues(cancelTime: number) {
+    cancelScheduledValues(_cancelTime: number) {
         return this
     }
-    cancelAndHoldAtTime(cancelTime: number) {
+    cancelAndHoldAtTime(_cancelTime: number) {
         return this
     }
 }
